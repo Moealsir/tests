@@ -1,5 +1,7 @@
 #include "main.h"
 
+unsigned int ui = 0; /* Define a dummy variable with an initial value */
+
 /**
  * I_handle_u_specifier - handle the unsigned decimal %u specifier.
  * @n: integer
@@ -46,7 +48,7 @@ int I_handle_x_specifier(unsigned int n)
     {
         count += I_handle_x_specifier(n / 16);
     }
-    
+
     digit = n % 16;
     count += _putchar((digit < 10) ? (digit + '0') : (digit - 10 + 'a'));
 
@@ -67,7 +69,7 @@ int I_handle_X_specifier(unsigned int n)
     {
         count += I_handle_X_specifier(n / 16);
     }
-    
+
     digit = n % 16;
     count += _putchar((digit < 10) ? (digit + '0') : (digit - 10 + 'A'));
 
