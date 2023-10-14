@@ -116,18 +116,3 @@ int I_handle_d_specifier(int n)
     return (count + _putchar(n % 10 + '0'));
 }
 
-/**
- * I_handle_i_specifier - handle the %i specifier for various bases.
- * @n: integer
- * Return: count
- */
-int I_handle_i_specifier(int n)
-{
-    int count = 0;
-
-    count += _putchar('0');
-    count += _putchar('x');
-    count += _putchar(n + '0');
-
-    return (count);
-}
