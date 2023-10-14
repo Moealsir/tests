@@ -18,12 +18,15 @@ int main(void)
 	printf("Character:[%c]\n", 'H');
 	len = _printf("Percent:[%%]\n");
 	len2 = printf("Percent:[%%]\n");
-	printf("%d\n", len);
-	printf("%d\n", len2);
-	_printf("Length:[%d, %i]\n", len, len);
-	printf("Length:[%d, %i]\n", len2, len2);
 	_printf("Negative:[%d]\n", -762534);
 	printf("Negative:[%d]\n", -762534);
+	_printf("%b\n", 98);
 
+	_printf("Length:[%d, %i]\n", len, len);
+	printf("Length:[%d, %i]\n", len2, len2);
+
+
+	printf("\n\n\n%d\n", len);
+	printf("%d\n", len2);
 	return (0);
 }
