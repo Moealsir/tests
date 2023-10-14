@@ -1,6 +1,6 @@
 #include "main.h"
 
-unsigned int ui = 0; /* Define a dummy variable with an initial value */
+unsigned int ui = 0;
 
 /**
  * I_handle_u_specifier - handle the unsigned decimal %u specifier.
