@@ -10,4 +10,8 @@ int I_handle_d_specifier(int n);
 int I_handle_b_specifier(int n);
 int I_handle_i_specifier(int n);
 
+int I_handle_u_specifier(unsigned int n);
+int I_handle_o_specifier(unsigned int n);
+int I_handle_x_specifier(unsigned int n);
+int I_handle_X_specifier(unsigned int n);
 #endif /* MAIN_H */

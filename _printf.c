@@ -44,6 +44,18 @@ int _printf(const char *format, ...)
                 case 'b':
                     count += I_handle_b_specifier(va_arg(args, int));
                     break;
+                case 'u':
+                    count += I_handle_u_specifier(va_arg(args, unsigned int));
+                    break;
+                case 'o':
+                    count += I_handle_o_specifier(va_arg(args, unsigned int));
+                    break;
+                case 'x':
+                    count += I_handle_x_specifier(va_arg(args, unsigned int));
+                    break;
+                case 'X':
+                    count += I_handle_X_specifier(va_arg(args, unsigned int));
+                    break;
                 default:
                     return (-1);
             }
