@@ -1,7 +1,5 @@
 #include "main.h"
 
-unsigned int ui = 0;
-
 /**
  * I_handle_u_specifier - handle the unsigned decimal %u specifier.
  * @n: integer
@@ -9,13 +7,15 @@ unsigned int ui = 0;
  */
 int I_handle_u_specifier(unsigned int n)
 {
-    int count = 0;
+	int count = 0;
 
-    if (n / 10 != 0)
-    {
-        count += I_handle_u_specifier(n / 10);
-    }
-    return (count + _putchar(n % 10 + '0'));
+	while (n > 0)
+	{
+		count += _putchar(n % 10 + '0');
+		n /= 10;
+	}
+
+	return (count);
 }
 
 /**
@@ -25,13 +25,15 @@ int I_handle_u_specifier(unsigned int n)
  */
 int I_handle_o_specifier(unsigned int n)
 {
-    int count = 0;
+	int count = 0;
 
-    if (n / 8 != 0)
-    {
-        count += I_handle_o_specifier(n / 8);
-    }
-    return (count + _putchar(n % 8 + '0'));
+	while (n > 0)
+	{
+		count += _putchar(n % 8 + '0');
+		n /= 8;
+	}
+
+	return (count);
 }
 
 /**
@@ -41,18 +43,15 @@ int I_handle_o_specifier(unsigned int n)
  */
 int I_handle_x_specifier(unsigned int n)
 {
-    int count = 0;
-    int digit;
+	int count = 0;
 
-    if (n / 16 != 0)
-    {
-        count += I_handle_x_specifier(n / 16);
-    }
+	while (n > 0)
+	{
+		count += _putchar("0123456789abcdef"[n % 16]);
+		n /= 16;
+	}
 
-    digit = n % 16;
-    count += _putchar((digit < 10) ? (digit + '0') : (digit - 10 + 'a'));
-
-    return count;
+	return (count);
 }
 
 /**
@@ -62,16 +61,13 @@ int I_handle_x_specifier(unsigned int n)
  */
 int I_handle_X_specifier(unsigned int n)
 {
-    int count = 0;
-    int digit;
+	int count = 0;
 
-    if (n / 16 != 0)
-    {
-        count += I_handle_X_specifier(n / 16);
-    }
+	while (n > 0)
+	{
+		count += _putchar("0123456789ABCDEF"[n % 16]);
+		n /= 16;
+	}
 
-    digit = n % 16;
-    count += _putchar((digit < 10) ? (digit + '0') : (digit - 10 + 'A'));
-
-    return count;
+	return (count);
 }

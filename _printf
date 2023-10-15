@@ -1,0 +1,91 @@
+#include "main.h"
+#include <stdarg.h>
+
+/**
+ * _printf - Our magical printf function
+ * @format: The inserted format
+ * Return: The number of characters printed
+ */
+#include "main.h"
+
+int _printf(const char *format, ...)
+{
+	int count = 0;
+	va_list args;
+	char buffer[1024];
+
+	va_start(args, format);
+
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			switch (*(++format))
+			{
+				case 'c':
+					handle_char(args, buffer, &count);
+					break;
+				case 's':
+					handle_string(args, buffer, &count);
+					break;
+				case '%':
+					handle_percent(buffer, &count);
+					break;
+				default:
+					count += I_handle_number_specifiers(args, format);
+					break;
+			}
+		}
+		else
+		{
+			buffer[count++] = *format;
+			if (count == 1024)
+				write_buffer(buffer, &count);
+		}
+		format++;
+	}
+
+	write_buffer(buffer, &count);
+
+	va_end(args);
+	return (count);
+}
+
+
+/**
+ * I_handle_number_specifiers - handle numbers
+ * @args: args
+ * @format: format
+ * Return: count
+ */
+
+int I_handle_number_specifiers(va_list args, const char *format)
+{
+	int count = 0;
+
+	switch (*format)
+	{
+		case 'd':
+			count += I_handle_d_specifier(va_arg(args, int));
+			break;
+		case 'b':
+			count += I_handle_b_specifier(va_arg(args, int));
+			break;
+		case 'u':
+			count += I_handle_u_specifier(va_arg(args, unsigned int));
+			break;
+		case 'o':
+			count += I_handle_o_specifier(va_arg(args, unsigned int));
+			break;
+		case 'x':
+			count += I_handle_x_specifier(va_arg(args, unsigned int));
+			break;
+		case 'X':
+			count += I_handle_X_specifier(va_arg(args, unsigned int));
+			break;
+		default:
+			return (-1);
+	}
+
+	return (count);
+}
