@@ -111,118 +111,97 @@ typedef struct builtin
 } builtin_table;
 
 
-/* shell_loop.c */
 int shell_loop(info_t *, char **);
 int f_builtin(info_t *);
 void f_cmd(info_t *);
 void fork_shell_cmd(info_t *);
 
-/* path.c */
 int isit_command(info_t *, char *);
 char *duplcated_chars(char *, int, int);
 char *find_cmd_path(info_t *, char *, char *);
 
-/* err_string_functions.c */
 void _input_string(char *);
 int writs_to_stderr(char);
 int writs_to_c(char c, int fd);
 int prnt_input_str(char *str, int fd);
 
-/* string_functions.c */
 int lenstr(char *);
 int strcmpa(char *, char *);
 char *start_wth(const char *, const char *);
 char *_strconca(char *, char *);
 
-/* string_functions2.c */
 char *_stricopy(char *, char *);
 char *_stridupli(const char *);
 void _puts(char *);
 int _putchar(char);
 
-/* string_functions3.c */
 char *_strncopy(char *, char *, int);
 char *_strnconca(char *, char *, int);
 char *_strichra(char *, char);
 
-/* string_functions4.c */
 char **strtow(char *, char *);
 char **strtow2(char *, char);
 
-/* memory_functions */
 char *_momset(char *, char, unsigned int);
 void freestr(char **);
 void *_realloc_bmom(void *, unsigned int, unsigned int);
 
-/* memory_functions2.c */
 int pfree(void **);
 
-/* more_functions.c */
 int shell_interactive(info_t *);
 int is_delimeter(char, char *);
 int _is_alphab(int);
 int _strtoin(char *);
 
-/* more_functions2.c */
 int _errstrtoin(char *);
 void _error(info_t *, char *);
 int print_decimal(int, int);
 char *conv_num(long int, int, int);
 void remv_comm(char *);
 
-/* builtin_emulators.c */
 int _exitshell(info_t *);
 int custom_cd(info_t *);
 int custom_help(info_t *);
 
-/* builtin_emulators2.c */
 int _history(info_t *);
 int _alias(info_t *);
 
-/* getline.c module */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void Sigint_Handler(int);
 
-/* info.c module */
 void clear_information(info_t *);
 void set_information(info_t *, char **);
 void free_information(info_t *, int);
 
-/* env.c module */
 char *_getenv(info_t *, const char *);
 int _my_env(info_t *);
 int _my_setenv(info_t *);
 int _my_unsetenv(info_t *);
 int populate_envlist(info_t *);
 
-/* env2.c module */
 char **get_environ(info_t *);
 int _unsetenv(info_t *, char *);
 int _setenv(info_t *, char *, char *);
 
-/* file_io_functions.c */
 char *gt_histry_file(info_t *info);
 int _write_histry(info_t *info);
 int _read_histry(info_t *info);
 int build_histrylist(info_t *info, char *buf, int linecount);
 int re_number_histry(info_t *info);
 
-/* liststr.c module */
 list_t *add_a_node(list_t **, const char *, int);
 list_t *add_a_node_end(list_t **, const char *, int);
 size_t prnt_liststr(const list_t *);
 int delete_node_at_index(list_t **, unsigned int);
 void free_list(list_t **);
 
-/* liststr2.c module */
 size_t listlen(const list_t *);
 char **listtostr(list_t *);
 size_t prntlist(const list_t *);
 list_t *node_strtwith(list_t *, char *, char);
 ssize_t _getnode_index(list_t *, list_t *);
 
-/* chain.c */
 int isit_chain(info_t *, char *, size_t *);
 void chck_chain(info_t *, char *, size_t *, size_t, size_t);
 int replace_alias(info_t *);
